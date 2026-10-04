@@ -1,0 +1,46 @@
+---
+import { Gem, Globe } from 'lucide-astro';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo Holding -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 via-cyan-400 to-amber-300 p-0.5 shadow-lg shadow-teal-500/20 group-hover:shadow-teal-500/40 transition">
+        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+          <Gem class="w-5 h-5 text-teal-400" />
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-teal-400 bg-clip-text text-transparent">
+          PEARL<span class="text-amber-400 font-light">IAM</span>
+        </span>
+        <span class="text-[9px] tracking-widest text-teal-400/80 uppercase font-medium">Perla Yo Soy • Holding</span>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <a href="#holding" class="hover:text-teal-400 transition">El Holding</a>
+      <a href="#ecosistema" class="hover:text-teal-400 transition">Ecosistema</a>
+      <a href="#milenium" class="text-amber-400 hover:text-amber-300 transition flex items-center gap-1.5 font-semibold">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+        </span>
+        Minera Milenium
+      </a>
+      <a href="#vision" class="hover:text-teal-400 transition">Visión AI & ESG</a>
+    </nav>
+
+    <!-- Botón Acción -->
+    <div class="hidden md:flex items-center gap-4">
+      <button class="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-white flex items-center gap-1 transition">
+        <Globe class="w-4 h-4" /> ES / EN
+      </button>
+      <a href="#contacto" class="px-5 py-2.5 text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 rounded-lg shadow-md shadow-teal-500/20 transition transform hover:-translate-y-0.5">
+        Contacto Holding
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,60 @@
+---
+import { Cpu, Pickaxe, BatteryCharging, Network } from 'lucide-astro';
+
+const companies = [
+  {
+    icon: Pickaxe,
+    name: "Minera Milenium",
+    tag: "Minería & Minerales Críticos",
+    desc: "Prospección y extracción inteligente de minerales estratégicos esenciales para la transición energética.",
+    highlight: true
+  },
+  {
+    icon: Cpu,
+    name: "Pearl AI Core",
+    tag: "Inteligencia Artificial",
+    desc: "Modelos predictivos y automatización industrial aplicados a operaciones mineras y energéticas.",
+    highlight: false
+  },
+  {
+    icon: BatteryCharging,
+    name: "Pearl Energy",
+    tag: "Energías Renovables",
+    desc: "Infraestructura solar y almacenamiento verde para alimentar operaciones del grupo con huella cero.",
+    highlight: false
+  },
+  {
+    icon: Network,
+    name: "Pearl Logistics & Tech",
+    tag: "Cadena de Suministro",
+    desc: "Trazabilidad blockchain para minerales estratégicos y redes de distribución logística global.",
+    highlight: false
+  }
+];
+---
+
+<section id="ecosistema" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-teal-400 font-bold mb-3">Ecosistema PearlIAm</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-white">Nuestras Unidades Estratégicas</p>
+      <p class="text-slate-400 mt-4 text-sm">Diversificación sinergizada bajo la visión corporativa PearlIAm.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {companies.map((company) => {
+        const Icon = company.icon;
+        return (
+          <div class={`p-6 rounded-2xl border transition hover:-translate-y-1 ${company.highlight ? 'bg-slate-900 border-amber-500/50 shadow-lg shadow-amber-500/5' : 'bg-slate-950 border-slate-800/80 hover:border-slate-700'}`}>
+            <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center mb-4">
+              <Icon class={`w-5 h-5 ${company.highlight ? 'text-amber-400' : 'text-teal-400'}`} />
+            </div>
+            <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block mb-1">{company.tag}</span>
+            <h3 class="text-lg font-bold text-white mb-2">{company.name}</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">{company.desc}</p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

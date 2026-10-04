@@ -1,0 +1,20 @@
+---
+import { Gem } from 'lucide-astro';
+---
+
+<footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-slate-400 text-xs">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-3">
+      <Gem class="w-5 h-5 text-teal-400" />
+      <span class="font-bold text-white tracking-wider">PEARL<span class="text-amber-400">IAM</span> HOLDING</span>
+    </div>
+    
+    <p>© {new Date().getFullYear()} PearlIAm Holding. Todos los derechos reservados. Incluye a Minera Milenium y filiales.</p>
+
+    <div class="flex gap-6">
+      <a href="https://minera-milenium.pages.dev/" target="_blank" class="hover:text-amber-400 transition">Minera Milenium Live Page</a>
+      <a href="#" class="hover:text-teal-400 transition">Términos</a>
+      <a href="#" class="hover:text-teal-400 transition">Privacidad</a>
+    </div>
+  </div>
+</footer>
