@@ -1,5 +1,5 @@
 ---
-import { Gem, Sun, Moon } from 'lucide-astro';
+import { Gem, Sun, Moon, Menu, X } from 'lucide-astro';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-amber-200/60 dark:border-amber-500/20 transition-colors duration-300">
@@ -11,22 +11,22 @@ import { Gem, Sun, Moon } from 'lucide-astro';
         <img 
           src="/logo-nav.png" 
           alt="Logo Pearl I Am" 
-          width="183px;"
-          height="40px"
-          class="h-[45px] w-auto block dark:hidden object-contain"
+          width="183"
+          height="40"
+          class="h-[40px] w-auto block dark:hidden object-contain"
         />
         <!-- Logo Modo Oscuro -->
         <img 
           src="/logo-nav-dark.png" 
           alt="Logo Pearl I Am" 
-          width="183px;"
-          height="40px"
-          class="h-[45px] w-auto hidden dark:block object-contain"
+          width="183"
+          height="40"
+          class="h-[40px] w-auto hidden dark:block object-contain"
         />
       </div>
     </a>
 
-    <!-- Nav Links -->
+    <!-- Nav Links (Desktop) -->
     <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700 dark:text-slate-300">
       <a href="#holding" class="hover:text-amber-600 dark:hover:text-amber-400 transition">El Holding</a>
       <a href="#ecosistema" class="hover:text-amber-600 dark:hover:text-amber-400 transition">Ecosistema</a>
@@ -40,25 +40,77 @@ import { Gem, Sun, Moon } from 'lucide-astro';
       <a href="#contacto" class="hover:text-amber-600 dark:hover:text-amber-400 transition">Contacto</a>
     </nav>
 
-    <!-- Controls (Theme Toggle & CTA) -->
-    <div class="flex items-center gap-4">
+    <!-- Controls (Theme Toggle, CTA & Mobile Menu Toggle) -->
+    <div class="flex items-center gap-3">
       <!-- Toggle Dark/Light Mode Button -->
       <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="p-2.5 rounded-xl border border-amber-200 dark:border-amber-500/30 bg-amber-50/50 dark:bg-slate-900 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-slate-800 transition shadow-sm">
         <Sun class="w-4 h-4 hidden dark:block" />
         <Moon class="w-4 h-4 block dark:hidden" />
       </button>
 
+      <!-- CTA Desktop -->
       <a href="#contacto" class="hidden md:inline-flex px-5 py-2.5 text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-lg shadow-md shadow-amber-500/20 transition transform hover:-translate-y-0.5">
         Contacto Holding
       </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden p-2.5 rounded-xl border border-amber-200 dark:border-amber-500/30 bg-amber-50/50 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-amber-100 dark:hover:bg-slate-800 transition shadow-sm">
+        <Menu id="icon-menu" class="w-5 h-5 block" />
+        <X id="icon-close" class="w-5 h-5 hidden" />
+      </button>
     </div>
+  </div>
+
+  <!-- Desplegable Móvil -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-amber-200/60 dark:border-amber-500/20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md px-6 py-6 transition-all duration-300">
+    <nav class="flex flex-col gap-4 text-base font-semibold text-slate-800 dark:text-slate-200">
+      <a href="#holding" class="mobile-link py-2 hover:text-amber-600 dark:hover:text-amber-400 transition">El Holding</a>
+      <a href="#ecosistema" class="mobile-link py-2 hover:text-amber-600 dark:hover:text-amber-400 transition">Ecosistema</a>
+      <a href="#milenium" class="mobile-link py-2 text-amber-600 dark:text-amber-400 font-bold flex items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+        </span>
+        Minera Milenium
+      </a>
+      <a href="#contacto" class="mobile-link py-2 hover:text-amber-600 dark:hover:text-amber-400 transition">Contacto</a>
+      
+      <a href="#contacto" class="mobile-link mt-2 text-center px-5 py-3 text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-lg shadow-md shadow-amber-500/20">
+        Contacto Holding
+      </a>
+    </nav>
   </div>
 </header>
 
 <script>
+  // Script Cambio de Tema
   const themeToggle = document.getElementById('theme-toggle');
   themeToggle?.addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Script Menú Móvil
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  const toggleMenu = () => {
+    const isExpanded = mobileMenu?.classList.toggle('hidden');
+    iconMenu?.classList.toggle('hidden', !isExpanded);
+    iconClose?.classList.toggle('hidden', isExpanded);
+  };
+
+  menuBtn?.addEventListener('click', toggleMenu);
+
+  // Cierra el menú al hacer clic en cualquier enlace
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu?.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
   });
 </script>
