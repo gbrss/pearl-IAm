@@ -1,185 +1,26 @@
-# PearlIAm Holding — Portal Corporativo & Documentación del Proyecto
+# PearlIAm Holding - Proyecto Astro JS (Blanco/Negro y Dorado)
 
-Bienvenido a la documentación oficial y guía de desarrollo de **PearlIAm Holding** ("*Perla Yo Soy*"). Este proyecto es una plataforma web desarrollada con **Astro.js** y **Tailwind CSS**, diseñada para proyectar la identidad corporativa global del holding e integrar sus unidades estratégicas de negocio, con especial énfasis en **Minera Milenium** como su filial minera principal.
+Landing page corporativa para **PearlIAm Holding** con soporte de tema claro (Blanco y Dorado) y oscuro (Negro y Dorado) intercambiables desde el menú de navegación.
 
----
+## 🌟 Características
+- **Tema Claro por Defecto:** Blanco perla y dorado metálico.
+- **Modo Oscuro (Dark Mode):** Negro mate y dorado mediante el botón del menú navbar.
+- **Minera Milenium:** Integrada como la filial estrella del holding.
+- **Persistencia de Tema:** Guarda la preferencia en `localStorage`.
 
-## 📋 Índice
+## 🚀 Instalación y Uso
 
-1. [Visión del Holding](#-visión-del-holding)
-2. [Arquitectura Tecnológica](#-arquitectura-tecnológica)
-3. [Estructura del Proyecto](#-estructura-del-proyecto)
-4. [Requisitos Previos e Instalación](#-requisitos-previos-e-instalación)
-5. [Guía de Desarrollo y Comandos](#-guía-de-desarrollo-y-comandos)
-6. [Documentación de Componentes](#-documentación-de-componentes)
-   - [Layout Principal (`Layout.astro`)](#layout-principal-layoutastro)
-   - [Encabezado Corporativo (`Header.astro`)](#encabezado-corporativo-headerastro)
-   - [Sección Hero (`Hero.astro`)](#sección-hero-heroastro)
-   - [Filial Destacada: Minera Milenium (`MiningSection.astro`)](#filial-destacada-minera-milenium-miningsectionastro)
-   - [Ecosistema de Negocios (`Ecosystem.astro`)](#ecosistema-de-negocios-ecosystemastro)
-   - [Pie de Página (`Footer.astro`)](#pie-de-página-footerastro)
-7. [Integración con Minera Milenium](#-integración-con-minera-milenium)
-8. [Despliegue y CI/CD](#-despliegue-y-cicd)
-9. [Estándares de Código y Diseño](#-estándares-de-código-y-diseño)
-10. [Contacto Corporativo](#-contacto-corporativo)
-
----
-
-## 🏛️ Visión del Holding
-
-**PearlIAm** (*Perla Yo Soy*) representa la resiliencia, la transformación estratégica y el desarrollo industrial avanzado. El holding opera como un conglomerado tecnológico y de recursos naturales que supervisa e impulsa empresas líderes en sus respectivos rubros:
-
-* **Minera Milenium:** Filial insignia dedicada a la prospección, extracción y procesamiento sustentable de minerales esenciales (Cobre e Hidrometalurgia limpia) aplicando inteligencia artificial y circuitos cerrados de recirculación hídrica.
-* **Pearl Tech & AI Labs:** División de investigación y desarrollo aplicada al procesamiento de datos industriales, monitoreo geotécnico predictivo y gemelos digitales.
-* **Pearl Energy & Green:** Desarrollo de parques fotovoltaicos y proyectos de almacenamiento energético para la descarbonización industrial.
-* **Pearl Capital Partners:** Fondo corporativo para el financiamiento e inversión en startups DeepTech y sostenibilidad ambiental.
-
----
-
-## ⚡ Arquitectura Tecnológica
-
-El proyecto utiliza una arquitectura orientada al rendimiento, la accesibilidad y la agilidad de carga (Zero-JS por defecto mediante Astro Islands):
-
-* **Framework:** [Astro v4.x](https://astro.build/) (Static Site Generation / SSR listo).
-* **Estilos:** [Tailwind CSS v3.x](https://tailwindcss.com/) (Sistema de diseño mediante utilidad).
-* **Iconografía:** [Lucide Astro](https://lucide.dev/) (Iconos de alta eficiencia en SVG inline).
-* **Tipografía:** *Plus Jakarta Sans* y *Outfit* (Google Fonts).
-* **Renderizado:** HTML estático optimizado con componentes reutilizables `.astro`.
-
----
-
-## 📁 Estructura del Proyecto
-
-```text
-pearl-iam-astro/
-├── public/
-│   └── favicon.svg           # Isotipo corporativo vectorizado
-├── src/
-│   ├── components/
-│   │   ├── Header.astro       # Navegación y selector de idiomas
-│   │   ├── Hero.astro         # Propuesta de valor principal y métricas
-│   │   ├── MiningSection.astro# Portal dedicado a la filial Minera Milenium
-│   │   ├── Ecosystem.astro    # Tarjetas del holding y unidades estratégicas
-│   │   └── Footer.astro       # Pie de página y enlaces legales
-│   ├── layouts/
-│   │   └── Layout.astro       # HTML Shell, meta-tags SEO y tipografías
-│   └── pages/
-│       └── index.astro        # Landing page principal
-├── astro.config.mjs           # Configuración de integraciones Astro
-├── tailwind.config.mjs        # Paleta de colores PearlIAm y extensiones
-├── package.json               # Dependencias e historial de scripts
-└── README.md                  # Documentación del sistema
+1. Instalar dependencias:
+```bash
+npm install
 ```
 
----
+2. Ejecutar entorno de desarrollo:
+```bash
+npm run dev
+```
 
-## 🛠️ Requisitos Previos e Instalación
-
-### Requisitos Mínimos:
-* **Node.js:** `v18.17.0` o superior.
-* **Gestor de Paquetes:** `npm` v9+ / `pnpm` / `yarn`.
-
-### Pasos de Instalación:
-
-1. **Clonar el repositorio o descomprimir el proyecto:**
-   ```bash
-   cd pearl-iam-astro
-   ```
-
-2. **Instalar dependencias del sistema:**
-   ```bash
-   npm install
-   ```
-
----
-
-## 🚀 Guía de Desarrollo y Comandos
-
-| Comando | Acción | Descripción |
-| :--- | :--- | :--- |
-| `npm run dev` | Servidor de desarrollo | Inicia el entorno local en `http://localhost:4321` con *Hot Module Reloading*. |
-| `npm run build` | Compilación para producción | Genera los archivos estáticos en la carpeta `dist/`. |
-| `npm run preview` | Vista previa de producción | Sirve localmente el paquete optimizado generado en `dist/`. |
-| `npm run astro` | CLI de Astro | Ejecuta comandos nativos del framework. |
-
----
-
-## 📑 Documentación de Componentes
-
-### Layout Principal (`Layout.astro`)
-Ofrece la estructura base del documento HTML5, configurando viewport responsive, SEO basico, pre-carga de fuentes (*Plus Jakarta Sans*) y clases globales del `body` en modo oscuro (`bg-slate-950`).
-
-### Encabezado Corporativo (`Header.astro`)
-Navegación fija con efecto *glassmorphism* (`backdrop-blur-md`). Contiene:
-* Logo distintivo del Holding con ícono de gema (`Gem`).
-* Menú de navegación anclado a secciones (`#holding`, `#milenium`, `#ecosistema`).
-* Botón de contacto rápido y acceso rápido a la sub-empresa destacado con indicador de pulso interactivo.
-
-### Sección Hero (`Hero.astro`)
-Presentación de la misión del holding. Incluye:
-* Titular con gradientes de color corporativo (Teal / Cyan / Amber).
-* Indicador de estatus tecnológico.
-* Métricas clave de rendimiento industrial (100% Trazabilidad AI, Zero-Net Commitment).
-
-### Filial Destacada: Minera Milenium (`MiningSection.astro`)
-Sección dedicada en exclusiva a la subsidiaria **Minera Milenium** (`https://minera-milenium.pages.dev/`):
-* Resalta la convergencia de la extracción minera y la autonomía tecnológica.
-* Incorpora un panel simulado de control de métricas de producción y eficiencia hídrica.
-* Incluye enlace saliente directo a la landing page independiente de la filial.
-
-### Ecosistema de Negocios (`Ecosystem.astro`)
-Muestra las 4 divisiones principales del holding agrupadas en tarjetas interactivas:
-1. Minera Milenium (Minería)
-2. Pearl AI Core (Inteligencia Artificial)
-3. Pearl Energy (Energías Renovables)
-4. Pearl Logistics & Tech (Trazabilidad y Suministro)
-
-### Pie de Página (`Footer.astro`)
-Cierre corporativo con enlaces a políticas, aviso de derechos reservados e hipervínculos a portales filiales.
-
----
-
-## ⛏️ Integración con Minera Milenium
-
-La relación entre **PearlIAm** (matriz) y **Minera Milenium** (subsidiaria) está conceptualizada tanto en diseño como en arquitectura:
-
-1. **Jerarquía Visual:** Minera Milenium cuenta con acentos cromáticos en tonos dorados/ámbar (`amber-400`, `amber-500`) para diferenciarse dentro del ecosistema digital del holding.
-2. **Navegación Directa:** El encabezado y la sección Hero contienen accesos directos destacados hacia los canales operativos de Minera Milenium.
-3. **Sincronización:** Se hace referencia explícita al sitio web de la filial ([minera-milenium.pages.dev](https://minera-milenium.pages.dev/)) para garantizar consistencia entre la marca matriz y la operación minera.
-
----
-
-## 🌐 Despliegue y CI/CD
-
-El proyecto está optimizado para desplegarse instantáneamente en plataformas Jamstack de alto rendimiento:
-
-### Cloudflare Pages
-1. Crear un proyecto nuevo en Cloudflare Pages conectado a tu repositorio Git.
-2. **Framework preset:** `Astro`
-3. **Build command:** `npm run build`
-4. **Build output directory:** `dist`
-
-### Vercel / Netlify
-Simplemente importa el repositorio; las plataformas detectarán Astro automáticamente y aplicarán la configuración óptima.
-
----
-
-## 🎨 Estándares de Código y Diseño
-
-* **Paleta de Colores:**
-  - Fondo Base: `slate-950` (`#020617`)
-  - Paneles / Cards: `slate-900` / `slate-950` con bordes `slate-800`
-  - Acentuación Holding: `teal-400` / `cyan-400`
-  - Acentuación Minera Milenium: `amber-400` / `amber-500`
-  - Indicadores de Éxito: `emerald-400`
-* **Estilo de Código:** Componentes atómicos e independientes `.astro`, utilizando Tailwind CSS para estilos en línea semánticos y limpios.
-
----
-
-## 📧 Contacto Corporativo
-
-**PearlIAm Holding**
-- **Oficina Central:** Distrito de Innovación y Negocios
-- **Sitio Web Holding:** `https://pearliam.com`
-- **Portal Minera Milenium:** `https://minera-milenium.pages.dev/`
-- **Correo Corporativo:** `contacto@pearliam.com`
+3. Compilar para producción (Cloudflare Pages / Vercel / Netlify):
+```bash
+npm run build
+```
