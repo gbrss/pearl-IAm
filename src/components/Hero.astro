@@ -11,7 +11,25 @@ import { ArrowRight, Sparkles } from 'lucide-astro';
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-300 dark:border-amber-500/30 bg-amber-100/60 dark:bg-amber-500/10 text-amber-800 dark:text-amber-300 text-xs font-bold uppercase tracking-widest mb-6">
         <Sparkles class="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> Excelencia Corporativa & Innovación
       </div>
-
+      <div class="flex flex-col">
+        <!-- Logo Modo Claro -->
+        <img 
+          src="/logo.png" 
+          alt="Logo Pearl I Am" 
+          width="540px"
+          height="auto"
+          class="h-[45px] w-auto block dark:hidden object-contain"
+        />
+        <!-- Logo Modo Oscuro -->
+        <img 
+          src="/logo-nav-dark.png" 
+          alt="Logo Pearl I Am" 
+          width="540px;"
+          height="auto"
+          class="h-[45px] w-auto hidden dark:block object-contain"
+        />
+      </div>
+      <!--<img src="logo.png" alt="Logo Pearl I Am" width="540px" height="auto">-->
       <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-none mb-6">
         Liderazgo estratégico y desarrollo sostenible en el <span class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 dark:from-amber-400 dark:via-amber-300 dark:to-amber-200 bg-clip-text text-transparent">siglo XXI.</span>
       </h1>
